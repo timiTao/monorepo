@@ -1,0 +1,9 @@
+{
+  "name": "timitao/monorepo",
+  "type": "project",
+  "license": "MIT",
+  "require": {},
+  "require-dev": {
+    "symplify/monorepo-builder": "^5.4"
+  }
+}
