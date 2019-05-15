@@ -2,8 +2,5 @@
   "name": "timitao/monoa",
   "type": "project",
   "license": "MIT",
-  "require": {},
-  "require-dev": {
-    "phpunit/phpunit": "^7.5"
-  }
+  "require": {}
 }
