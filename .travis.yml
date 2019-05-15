@@ -16,7 +16,7 @@ install:
 
 # ... other scripts
 
-after_script:
+after_success:
   # split monorepo to packages - only on merge to master
   - |
     if [[ $TRAVIS_EVENT_TYPE == "push" && $MONOREPO_SPLIT == true && $TRAVIS_BRANCH == "master" ]]; then

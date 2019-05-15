@@ -3,5 +3,5 @@ parameters:
     - 'src'
 
   directories_to_repositories:
-    MonoA: 'https://dce03d009aa2d5b18234ad7772c87e90cbf02c5c@github.com:timiTao/monoa.git'
-    MonoB: 'https://dce03d009aa2d5b18234ad7772c87e90cbf02c5c@github.com:timiTao/monob.git'
+    MonoA: 'git@github.com:timiTao/monoa.git'
+    MonoB: 'git@github.com:timiTao/monob.git'

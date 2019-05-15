@@ -1,9 +1,13 @@
 {
-  "name": "timitao/monorepo",
-  "type": "project",
-  "license": "MIT",
-  "require": {},
-  "require-dev": {
-    "symplify/monorepo-builder": "^5.4"
-  }
+    "name": "timitao/monorepo",
+    "type": "project",
+    "license": "MIT",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "replace": {
+        "timitao/monoa": "self.version",
+        "timitao/monob": "self.version"
+    }
 }
