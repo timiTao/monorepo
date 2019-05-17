@@ -7,17 +7,27 @@ git:
 
 jobs:
   include:
-    - &test-stage
-      stage: test
+    - stage: standards
       name: Checking standards
       php: 7.1
       script:
         - php vendor/bin/phpcs --standard=PSR1 ./packages --ignore=*/spec/*
         - php vendor/bin/phpcs --standard=PSR2 ./packages --ignore=*/spec/*
         - php vendor/bin/phpstan analyse ./packages --level max
+    - &test-stage
+      stage: test
+      name: PHP 7.1 PHPSpec
+      php: 7.1
+      script:
+        - cd $TRAVIS_BUILD_DIR/packages/TimiTao/MonoA
+        - php $TRAVIS_BUILD_DIR/vendor/bin/phpspec run
+        - cd $TRAVIS_BUILD_DIR/packages/TimiTao/MonoB
+        - php $TRAVIS_BUILD_DIR/vendor/bin/phpspec run
     - <<: *test-stage
+      name: PHP 7.2 PHPSpec
       php: 7.2
     - <<: *test-stage
+      name: PHP 7.3 PHPSpec
       php: 7.3
     - stage: split
       name: Split for repositories
@@ -28,6 +38,7 @@ jobs:
         fi
 
 stages:
+  - standards
   - test
   - name: split
     if: branch = master
