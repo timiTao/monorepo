@@ -1,0 +1,24 @@
+{
+  "name": "timitao/monob",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "timitao/monoa": "^0.2"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "5.1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "TimiTao\\MonoB\\": "."
+    },
+    "exclude-from-classmap": [
+      "/spec/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "spec\\TimiTao\\MonoB\\": "spec"
+    }
+  }
+}
