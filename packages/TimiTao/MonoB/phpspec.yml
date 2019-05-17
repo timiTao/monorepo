@@ -1,0 +1,5 @@
+suites:
+  monob:
+    namespace: TimiTao\MonoB
+    psr4_prefix: TimiTao\MonoB
+    src_path: .

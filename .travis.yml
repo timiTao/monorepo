@@ -12,9 +12,10 @@ matrix:
     # ... other builds
 
 install:
-  - composer install
-
-# ... other scripts
+  -  composer install
+  -  php vendor/bin/phpcs --standard=PSR1 ./packages --ignore=*/spec/*
+  -  php vendor/bin/phpcs --standard=PSR2 ./packages --ignore=*/spec/*
+  -  php vendor/bin/phpstan analyse ./packages --level max
 
 after_success:
   # split monorepo to packages - only on merge to master
