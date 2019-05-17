@@ -10,5 +10,5 @@ parameters:
     - 'autoload-dev'
 
   directories_to_repositories:
-    packages/MonoA: 'git@github.com:timiTao/monoa.git'
-    packages/MonoB: 'git@github.com:timiTao/monob.git'
+    packages/TimiTao/MonoA: 'git@github.com:timiTao/monoa.git'
+    packages/TimiTao/MonoB: 'git@github.com:timiTao/monob.git'

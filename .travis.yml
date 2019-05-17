@@ -5,23 +5,32 @@ language: php
 git:
   depth: false
 
-matrix:
+jobs:
   include:
-    - php: 7.2
-      env: MONOREPO_SPLIT=true
-    # ... other builds
+    - &test-stage
+      stage: test
+      name: Checking standards
+      php: 7.1
+      script:
+        - php vendor/bin/phpcs --standard=PSR1 ./packages --ignore=*/spec/*
+        - php vendor/bin/phpcs --standard=PSR2 ./packages --ignore=*/spec/*
+        - php vendor/bin/phpstan analyse ./packages --level max
+    - <<: *test-stage
+      php: 7.2
+    - <<: *test-stage
+      php: 7.3
+    - stage: split
+      name: Split for repositories
+      php: 7.1
+      script: |
+        if [[ $TRAVIS_EVENT_TYPE == "push" && $TRAVIS_BRANCH == "master" ]]; then
+          vendor/bin/monorepo-builder split -v
+        fi
+
+stages:
+  - test
+  - name: split
+    if: branch = master
 
 install:
   -  composer install
-
-script:
-  -  php vendor/bin/phpcs --standard=PSR1 ./packages --ignore=*/spec/*
-  -  php vendor/bin/phpcs --standard=PSR2 ./packages --ignore=*/spec/*
-  -  php vendor/bin/phpstan analyse ./packages --level max
-
-after_success:
-  # split monorepo to packages - only on merge to master
-  - |
-    if [[ $TRAVIS_EVENT_TYPE == "push" && $MONOREPO_SPLIT == true && $TRAVIS_BRANCH == "master" ]]; then
-      vendor/bin/monorepo-builder split -v
-    fi
