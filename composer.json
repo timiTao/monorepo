@@ -17,7 +17,8 @@
             "packages/TimiTao/MonoB/spec/"
         ],
         "psr-4": {
-            "TimiTao\\MonoA\\": "packages/TimiTao/MonoB/."
+            "TimiTao\\MonoA\\": "packages/TimiTao/MonoA/.",
+            "TimiTao\\MonoB\\": "packages/TimiTao/MonoB/."
         }
     },
     "autoload-dev": {

@@ -13,6 +13,8 @@ matrix:
 
 install:
   -  composer install
+
+script:
   -  php vendor/bin/phpcs --standard=PSR1 ./packages --ignore=*/spec/*
   -  php vendor/bin/phpcs --standard=PSR2 ./packages --ignore=*/spec/*
   -  php vendor/bin/phpstan analyse ./packages --level max
