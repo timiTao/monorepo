@@ -1,22 +1,22 @@
 {
-  "name": "timitao/monoa",
-  "type": "project",
-  "license": "MIT",
-  "require": {},
-  "require-dev": {
-    "phpspec/phpspec": "5.1.*"
-  },
-  "autoload": {
-    "psr-4": {
-      "TimiTao\\MonoA\\": "."
+    "name": "timitao/monoa",
+    "type": "project",
+    "license": "MIT",
+    "require": {},
+    "require-dev": {
+        "phpspec/phpspec": "5.1.*"
     },
-    "exclude-from-classmap": [
-      "/spec/"
-    ]
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "spec\\TimiTao\\MonoA\\": "spec"
+    "autoload": {
+        "psr-4": {
+            "TimiTao\\MonoA\\": "."
+        },
+        "exclude-from-classmap": [
+            "/spec/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\TimiTao\\MonoA\\": "spec"
+        }
     }
-  }
 }

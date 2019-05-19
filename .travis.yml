@@ -36,11 +36,15 @@ jobs:
         if [[ $TRAVIS_EVENT_TYPE == "push" ]]; then
           vendor/bin/monorepo-builder split -v
         fi
+    - stage: examples
+      script: sh $TRAVIS_BUILD_DIR/packages/Deployment/bin/trigger-travis.sh timitao mono-example $TRAVIS_ACCESS_TOKEN
 
 stages:
   - standards
   - test
-  - name: split
+  - name: split`
+    if: branch = master
+  - name: examples
     if: branch = master
 
 install:
