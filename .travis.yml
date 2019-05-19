@@ -33,7 +33,7 @@ jobs:
       name: Split for repositories
       php: 7.1
       script: |
-        if [[ $TRAVIS_EVENT_TYPE == "push" && $TRAVIS_BRANCH == "master" ]]; then
+        if [[ $TRAVIS_EVENT_TYPE == "push" ]]; then
           vendor/bin/monorepo-builder split -v
         fi
 
